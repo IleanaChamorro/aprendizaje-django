@@ -1,0 +1,37 @@
+<html>
+    <body>
+        <!--Plantillas incrustadas-->
+        {% include "superior/main.html" %}
+        <h1 style="color: green">Hola esta es mi primera plantilla</h1>
+
+        <!--comentario-->
+        {# ESTA PARTE SOLO ES UN COMENTARIO#}
+
+        {% comment %}
+            Commentario de dos lineas
+        {% endcomment %}
+        {% if nombre_persona == 'Profesor Ileana' %}
+
+        <p>El curso lo dicta el profesor titular</p>
+
+        {% else %}
+            <p>El curso lo imparte el profesor suplente</p>
+        {%  endif %}
+        <p>El nombre del profesor es: {{nombre_persona|lower}} {{apellido_persona}} 
+            <br/> <strong>La hora actual es:{{momentoactual.day}} / {{momentoactual.month}} / {{momentoactual.year}} </strong>
+        </p>
+        <p><strong>Temas del curso:</strong></p>
+        <p>
+            <ul>
+            {% if temas%}
+            {% for tema in temas%}
+            <!--Filtros encadenados-->
+                <li>{{tema|first|lower}}</li>
+            {% endfor %}
+            {%  else %}
+            <p>No hay elementos para mostrar</p>
+            {% endif %}
+            </ul>
+        </p>
+    </body>
+</html>

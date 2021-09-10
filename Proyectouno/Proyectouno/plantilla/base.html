@@ -1,0 +1,17 @@
+<!--Herencia Plantillas-->
+<html>
+    <head>
+        <title>{% block title%}{% endblock %}</title>
+    </head>
+    <body>
+        <!--Contenido Estatico-->
+        <h1 style="background-color: darkolivegreen; color:white; text-align: center;">Herencia Plantillas</h1>
+        <h3>Aprendizaje Django</h3>
+
+        <!--Contenido Dinamico-->
+        {% block content%}
+
+        {% endblock %}
+        <p>Aprendizaje Autodidacta</p>
+    </body>
+</html>
