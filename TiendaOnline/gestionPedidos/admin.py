@@ -8,7 +8,7 @@ from gestionPedidos.models import Clientes, Articulos, Pedidos
 class ClientesAdmin(admin.ModelAdmin):
     list_display=("nombre", "direccion", "telefono")
 #Busqueda de registros  
-    search_fields=("nombre", "telefono")
+    buscar_fields=("nombre", "telefono")
 
 #Filtro de busqueda por seccion
 class ArticulosAdmin(admin.ModelAdmin):
