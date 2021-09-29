@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from gestionPedidos.models import Articulos
+from django.core.mail import send_mail
+from django.conf import settings
 
 # Create your views here.
 def busqueda_productos(request):
@@ -28,6 +30,18 @@ def buscar(request):
 def contacto(request):  
     #En caso que detecte el post
     if request.method=="POST":
-        return render(request, "saludos.html")
+
+        subject=request.POST["consulta"]
+
+    #Recuperar datos del usariio
+        message=request.POST["mensaje"] + "" + request.POST["email"]
+       
+        email_from=settings.EMAIL_HOST_USER
+    #Donde viaja la consulta
+    recipient_list=["ic.chamorro07@gmail.com"]
+
+    send_mail(subject, message, email_from, recipient_list)
+
+    return render(request, "saludos.html")
         
     return render(request, "formcontacto.html")
