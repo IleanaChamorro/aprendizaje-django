@@ -1,0 +1,20 @@
+<html>
+    <body>
+        <h1>Contactanos</h1>
+
+
+        <!--Validacion datos formulario-->
+
+       {% if form.errors%}
+            <p style="color:red;">Por favor completar los datos requeridos</p>
+       {% endif %}
+
+       <form action="" method="POST">{% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+
+            <input type="submit" value="Enviar">
+       </form>
+    </body>
+</html>
